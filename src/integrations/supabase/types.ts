@@ -14,13 +14,60 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      rsvps: {
+        Row: {
+          attending: boolean
+          created_at: string
+          guests: number
+          id: string
+          name: string
+          phone: string | null
+        }
+        Insert: {
+          attending?: boolean
+          created_at?: string
+          guests?: number
+          id?: string
+          name: string
+          phone?: string | null
+        }
+        Update: {
+          attending?: boolean
+          created_at?: string
+          guests?: number
+          id?: string
+          name?: string
+          phone?: string | null
+        }
+        Relationships: []
+      }
+      wishes: {
+        Row: {
+          created_at: string
+          id: string
+          message: string
+          name: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          message: string
+          name: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          message?: string
+          name?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      attending_total: { Args: never; Returns: number }
     }
     Enums: {
       [_ in never]: never
