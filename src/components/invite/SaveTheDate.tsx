@@ -1,13 +1,27 @@
 import { CalendarPlus } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { googleCalendarUrl, invitation } from "@/lib/invitation";
+import { eventOffsetHours, googleCalendarUrl, invitation } from "@/lib/invitation";
 
 const WEEK = ["ح", "ن", "ث", "ر", "خ", "ج", "س"];
+const MONTHS = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
+];
 
 export function SaveTheDate() {
   const d = new Date(invitation.dateISO);
-  // Use Riyadh calendar day (UTC+3) regardless of viewer timezone.
-  const local = new Date(d.getTime() + 3 * 3600 * 1000);
+  // Use the venue's calendar day regardless of viewer timezone.
+  const local = new Date(d.getTime() + eventOffsetHours() * 3600 * 1000);
   const year = local.getUTCFullYear();
   const month = local.getUTCMonth();
   const day = local.getUTCDate();
@@ -21,7 +35,7 @@ export function SaveTheDate() {
   return (
     <div className="glass-card p-6">
       <div className="mb-5 flex items-baseline justify-between">
-        <span className="font-script text-3xl text-sand">December</span>
+        <span className="font-script text-3xl text-sand">{MONTHS[month]}</span>
         <span className="text-sm tracking-[0.3em] text-muted-foreground">{year}</span>
       </div>
       <div className="grid grid-cols-7 gap-y-2 text-center text-sm">
