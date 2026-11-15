@@ -45,12 +45,14 @@ const MOMENTS = [
   { src: rings, alt: "خاتما الزواج" },
 ];
 
-function Names({ size = "lg" }: { size?: "lg" | "md" }) {
+function Names({ size = "lg", titles = true }: { size?: "lg" | "md"; titles?: boolean }) {
   const cls = size === "lg" ? "text-6xl" : "text-5xl";
   return (
     <div className="flex flex-col items-center leading-none">
+      {titles && <span className="mb-2 text-sm tracking-[0.35em] text-sand">{invitation.groomTitle}</span>}
       <span className={`font-display ${cls} text-ivory`}>{invitation.groom}</span>
       <span className="font-script my-1 text-5xl text-gold-gradient">&amp;</span>
+      {titles && <span className="mb-2 text-sm tracking-[0.35em] text-sand">{invitation.brideTitle}</span>}
       <span className={`font-display ${cls} text-ivory`}>{invitation.bride}</span>
     </div>
   );
@@ -219,7 +221,7 @@ function Invitation() {
         </section>
 
         <footer className="pb-6 pt-4 text-center">
-          <Names size="md" />
+          <Names size="md" titles={false} />
           <p className="mt-5 text-sm tracking-[0.4em] text-muted-foreground">{invitation.dateText}</p>
         </footer>
       </main>
