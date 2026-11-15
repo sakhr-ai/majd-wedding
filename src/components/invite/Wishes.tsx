@@ -71,7 +71,7 @@ export function Wishes() {
         )}
         {wishes.data?.map((w) => (
           <figure key={w.id} className="glass-card rounded-2xl px-5 py-4">
-            <blockquote className="text-[15px] leading-relaxed text-ivory">“{w.message}”</blockquote>
+            <blockquote className="text-[15px] leading-relaxed text-ivory">{w.message}</blockquote>
             <figcaption className="mt-2 text-xs text-gold">— {w.name}</figcaption>
           </figure>
         ))}
