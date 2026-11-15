@@ -74,7 +74,7 @@ function Invitation() {
         />
         <div className="bg-hero-fade absolute inset-0" />
         <div className="relative z-20 mx-auto flex h-full max-w-md flex-col items-center justify-end px-6 pb-16 text-center">
-          <p className="animate-rise text-sm tracking-[0.5em] text-sand">حـفـل زفـاف</p>
+          <p className="animate-rise font-display text-xl text-sand">حــفــل زفــاف</p>
           <div className="animate-rise mt-5 [animation-delay:200ms]">
             <Names />
           </div>
