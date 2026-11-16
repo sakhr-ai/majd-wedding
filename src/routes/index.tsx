@@ -30,9 +30,9 @@ export const Route = createFileRoute("/")({
 });
 
 const RULES = [
-  { icon: Camera, label: "ممنوع التصوير" },
+  { icon: Camera, label: "‏ حفل الزفاف للرجال والنساء منفصل في نفس التوقيت " },
   { icon: Clock, label: "يرجى الحضور في الوقت المحدد" },
-  { icon: Lock, label: "فعالية خاصة" },
+  { icon: Lock, label: "الدعوة خاصة" },
 ];
 
 function Names({ size = "lg", titles = true }: { size?: "lg" | "md"; titles?: boolean }) {
