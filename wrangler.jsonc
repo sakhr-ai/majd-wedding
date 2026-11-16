@@ -1,0 +1,14 @@
+{
+  {
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "spark-and-canvas-60",
+  "compatibility_date": "2026-11-16",
+  "compatibility_flags": ["nodejs_compat"],
+  "main": "@tanstack/react-start/server-entry"
+}
+  "vars": {
+    "SUPABASE_PUBLISHABLE_KEY": "sb_publishable_0fJ2iyoWz2vbSzjNNCEf0w_G1BAHSEH",
+    "SUPABASE_URL": "https://oqkilvazvinihudhdxcq.supabase.co"
+  },
+  // ...
+}
