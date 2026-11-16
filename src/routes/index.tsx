@@ -40,7 +40,7 @@ function Names({ size = "lg", titles = true }: { size?: "lg" | "md"; titles?: bo
     <div className="flex flex-col items-center leading-none">
       {titles && <span className="mb-2 text-sm tracking-[0.35em] text-sand">{invitation.groomTitle}</span>}
       <span className={`font-display ${cls} text-ivory`}>{invitation.groom}</span>
-      <span className="font-script my-1 text-5xl text-gold-gradient">&amp;</span>
+      <span className="font-script mx-4 my-1 text-5xl text-gold-gradient">&amp;</span>
       {titles && <span className="mb-2 text-sm tracking-[0.35em] text-sand">{invitation.brideTitle}</span>}
       <span className={`font-display ${cls} text-ivory`}>{invitation.bride}</span>
     </div>
