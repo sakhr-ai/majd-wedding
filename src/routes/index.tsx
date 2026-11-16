@@ -53,7 +53,7 @@ function Invitation() {
       <Petals />
 
       {/* Cover: whole photo in front, words on a small panel */}
-      <header className="relative mx-auto max-w-md px-5 pt-8">
+      <header className="relative mx-auto flex min-h-[100svh] max-w-md flex-col justify-center px-5 py-10">
         <div className="animate-rise glass-card overflow-hidden p-1.5">
           <img
             src={heroAsset.url}
@@ -64,7 +64,7 @@ function Invitation() {
           />
         </div>
 
-        <div className="animate-rise glass-card relative z-20 -mt-5 mx-4 rounded-3xl px-4 py-6 text-center [animation-delay:200ms]">
+        <div className="animate-rise glass-card mt-4 mx-4 rounded-3xl px-4 py-6 text-center [animation-delay:200ms]">
           <p className="font-display text-lg text-sand">حــفــل زفــاف</p>
           <div className="mt-3">
             <Names />
@@ -82,7 +82,7 @@ function Invitation() {
           </div>
         </div>
 
-        <a href="#invite" aria-label="انتقل للأسفل" className="animate-soft-pulse mt-7 flex justify-center text-sand">
+        <a href="#invite" aria-label="انتقل للأسفل" className="animate-soft-pulse mt-8 flex justify-center text-sand">
           <ChevronDown className="size-6" />
         </a>
       </header>
