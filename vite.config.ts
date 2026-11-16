@@ -10,10 +10,10 @@
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
 export default defineConfig({
-  base:'/spark-and-canvas-6'
+vite: {
+    base: '/spark-and-canvas-60/',
+  },
   tanstackStart: {
-    // Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
-    // nitro/vite builds from this
-    server: { entry: "server" },
+    server: { entry: 'server' },
   },
 });
