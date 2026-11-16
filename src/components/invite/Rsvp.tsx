@@ -64,7 +64,7 @@ export function Rsvp() {
           عدد الحضور المؤكد
         </span>
         <span className="font-body text-3xl font-bold tabular-nums text-ivory">
-          {total.data ?? "—"}
+          {total.data ?? "0"}
         </span>
       </div>
 
