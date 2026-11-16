@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { CalendarDays, Camera, ChevronDown, Clock, Lock, MapPin, Navigation } from "lucide-react";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { BottomNav } from "@/components/invite/BottomNav";
 import { Countdown } from "@/components/invite/Countdown";
@@ -47,45 +48,131 @@ function Names({ size = "lg", titles = true }: { size?: "lg" | "md"; titles?: bo
   );
 }
 
-function Invitation() {
+const COVER_SPARKLES = [
+  ["15%", "21%"],
+  ["27%", "69%"],
+  ["76%", "18%"],
+  ["84%", "42%"],
+  ["68%", "77%"],
+  ["19%", "84%"],
+  ["89%", "72%"],
+  ["40%", "13%"],
+] as const;
+
+function InvitationCover({ isOpening, onOpen }: { isOpening: boolean; onOpen: () => void }) {
   return (
-    <div dir="rtl" lang="ar" className="relative min-h-screen pb-32">
-      <Petals />
+    <div
+      aria-hidden={isOpening}
+      inert={isOpening}
+      className={`fixed inset-0 z-50 flex min-h-svh items-center justify-center overflow-hidden bg-espresso transition-opacity duration-1000 ease-out ${
+        isOpening ? "pointer-events-none opacity-0" : "opacity-100"
+      }`}
+    >
+      <img
+        src={heroAsset}
+        alt=""
+        className="absolute inset-0 h-full w-full scale-110 object-cover opacity-50 blur-xl"
+      />
+      <div className="absolute inset-0 bg-gradient-to-b from-espresso/35 via-espresso/55 to-espresso/80" />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background:
+            "radial-gradient(ellipse at 50% 43%, oklch(0.74 0.12 85 / 0.2), transparent 42%)",
+        }}
+      />
 
-      {/* Cover: whole photo in front, words on a small panel */}
-      <header className="relative mx-auto max-w-md px-5 py-5">
-        <div className="animate-rise glass-card p-1.5">
-          <img
-            src={heroAsset}
-            alt="العريس والعروسة أمام قوس مضيء"
-            width={854}
-            height={735}
-            className="mx-auto block w-[min(100%,calc(34svh*1.162))] rounded-[1.4rem] object-contain"
-          />
-           </div>
-        <div className="animate-rise glass-card mt-4 mx-4 rounded-3xl px-4 py-5 text-center [animation-delay:200ms]">
-          <p className="font-display text-base text-sand">حــفــل زفــاف</p>
-          <div className="mt-2">
-            <Names />
+      {COVER_SPARKLES.map(([left, top], index) => (
+        <span
+          key={`${left}-${top}`}
+          aria-hidden="true"
+          className="animate-pulse absolute size-1 rounded-full bg-sand/55 shadow-glow motion-reduce:animate-none"
+          style={{ left, top, animationDelay: `${index * 260}ms` }}
+        />
+      ))}
+
+      <button
+        type="button"
+        onClick={onOpen}
+        aria-label={`افتح دعوة زفاف ${invitation.groom} و${invitation.bride}`}
+        className={`group relative z-10 flex size-40 flex-col items-center justify-center gap-1 overflow-hidden rounded-full border border-sand/35 bg-espresso/30 px-4 text-center text-sand shadow-glow backdrop-blur-md transition-[transform,opacity,filter,box-shadow,border-color] duration-700 ease-out hover:scale-105 hover:border-gold/65 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-4 focus-visible:ring-offset-espresso active:scale-95 motion-reduce:transition-none motion-reduce:hover:scale-100 ${
+          isOpening ? "scale-125 opacity-0 blur-sm" : "opacity-100"
+        }`}
+      >
+        <span
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-1 rounded-full border border-sand/20"
+        />
+        <span className="font-display text-xl leading-tight text-ivory">{invitation.groom}</span>
+        <span aria-hidden="true" className="font-script text-3xl leading-none text-gold-gradient">
+          &amp;
+        </span>
+        <span className="font-display text-xl leading-tight text-ivory">{invitation.bride}</span>
+        <span className="mt-2 text-[10px] tracking-[0.28em] text-sand/70 transition-colors duration-500 group-hover:text-gold">
+          OPEN
+        </span>
+      </button>
+    </div>
+  );
+}
+
+function Invitation() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <div
+      dir="rtl"
+      lang="ar"
+      className={`relative min-h-screen pb-32 ${isOpen ? "" : "h-svh overflow-hidden"}`}
+    >
+      <div
+        aria-hidden={!isOpen}
+        inert={!isOpen}
+        className={`transition-opacity duration-1000 ease-out ${
+          isOpen
+            ? "opacity-100 delay-150"
+            : "pointer-events-none opacity-0"
+        }`}
+      >
+        <Petals />
+
+        {/* Cover: whole photo in front, words on a small panel */}
+        <header className="relative mx-auto max-w-md px-5 py-5">
+          <div className="animate-rise glass-card p-1.5">
+            <img
+              src={heroAsset}
+              alt="العريس والعروسة أمام قوس مضيء"
+              width={854}
+              height={735}
+              className="mx-auto block w-[min(100%,calc(34svh*1.162))] rounded-[1.4rem] object-contain"
+            />
           </div>
-          <div className="mt-4 flex items-center justify-center gap-4 text-sm text-sand">
-            <span className="flex items-center gap-1.5">
-              <CalendarDays className="size-4 text-gold" />
-              {invitation.dayName} {invitation.dateText}
-            </span>
-            <span className="h-4 w-px bg-border" />
-            <span className="flex items-center gap-1.5">
-              <Clock className="size-4 text-gold" />
-              {invitation.timeText}
-            </span>
+
+          <div className="animate-rise glass-card mt-4 mx-4 rounded-3xl px-4 py-5 text-center [animation-delay:200ms]">
+            <p className="font-display text-base text-sand">حــفــل زفــاف</p>
+            <div className="mt-2">
+              <Names />
+            </div>
+            <div className="mt-4 flex items-center justify-center gap-4 text-sm text-sand">
+              <span className="flex items-center gap-1.5">
+                <CalendarDays className="size-4 text-gold" />
+                {invitation.dayName} {invitation.dateText}
+              </span>
+              <span className="h-4 w-px bg-border" />
+              <span className="flex items-center gap-1.5">
+                <Clock className="size-4 text-gold" />
+                {invitation.timeText}
+              </span>
+            </div>
           </div>
 
-        <a href="#invite" aria-label="انتقل للأسفل" className="animate-soft-pulse mt-6 hidden justify-center text-sand tall:flex">
-          <ChevronDown className="size-6" />
-        </a>
-      </header>
+          <a href="#invite" aria-label="انتقل للأسفل" className="animate-soft-pulse mt-6 hidden justify-center text-sand tall:flex">
+            <ChevronDown className="size-6" />
+          </a>
+        </header>
 
-      <main className="relative z-20 mx-auto max-w-md space-y-20 px-5">
+        <main className="relative z-20 mx-auto max-w-md space-y-20 px-5">
         {/* Invitation text */}
         <section id="invite" className="pt-8 text-center">
           <Reveal>
@@ -194,9 +281,12 @@ function Invitation() {
           <Names size="md" titles={false} />
           <p className="mt-5 text-sm tracking-[0.4em] text-muted-foreground">{invitation.dateText}</p>
         </footer>
-      </main>
+        </main>
 
-      <BottomNav />
+        <BottomNav />
+      </div>
+
+      <InvitationCover isOpening={isOpen} onOpen={() => setIsOpen(true)} />
     </div>
   );
 }
