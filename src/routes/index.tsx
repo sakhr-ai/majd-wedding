@@ -95,7 +95,7 @@ function InvitationCover({ isOpening, onOpen }: { isOpening: boolean; onOpen: ()
       <button
         type="button"
         onClick={onOpen}
-        aria-label={`افتح دعوة زفاف ${invitation.groom} و${invitation.bride}`}
+        aria-label={`افتح دعوة زفاف ${"M"} و${"H"}`}
         className={`group relative z-10 flex size-40 flex-col items-center justify-center gap-1 overflow-hidden rounded-full border border-sand/35 bg-espresso/30 px-4 text-center text-sand shadow-glow backdrop-blur-md transition-[transform,opacity,filter,box-shadow,border-color] duration-700 ease-out hover:scale-105 hover:border-gold/65 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-4 focus-visible:ring-offset-espresso active:scale-95 motion-reduce:transition-none motion-reduce:hover:scale-100 ${
           isOpening ? "scale-125 opacity-0 blur-sm" : "opacity-100"
         }`}
