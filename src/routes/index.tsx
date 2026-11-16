@@ -34,8 +34,6 @@ const RULES = [
   { icon: Lock, label: "فعالية خاصة" },
 ];
 
-const MOMENTS = [];
-
 function Names({ size = "lg", titles = true }: { size?: "lg" | "md"; titles?: boolean }) {
   const cls = size === "lg" ? "text-6xl" : "text-5xl";
   return (
