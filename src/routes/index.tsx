@@ -9,11 +9,7 @@ import { Rsvp } from "@/components/invite/Rsvp";
 import { SaveTheDate } from "@/components/invite/SaveTheDate";
 import { Wishes } from "@/components/invite/Wishes";
 import { invitation, mapsEmbedUrl, mapsUrl } from "@/lib/invitation";
-import hero from "@/assets/hero-veil.jpg";
-import table from "@/assets/moment-table.jpg";
-import bouquet from "@/assets/moment-bouquet.jpg";
-import rings from "@/assets/moment-rings.jpg";
-import venue from "@/assets/moment-venue.jpg";
+import heroAsset from "@/assets/couple-arch.jpg.asset.json";
 
 const title = `حفل زفاف ${invitation.groom} & ${invitation.bride}`;
 const description = `يتشرفون بدعوتكم لحضور حفل زفافهما يوم ${invitation.dayName} ${invitation.dateText} في ${invitation.venue}.`;
@@ -38,13 +34,6 @@ const RULES = [
   { icon: Lock, label: "فعالية خاصة" },
 ];
 
-const MOMENTS = [
-  { src: venue, alt: "مدخل قاعة الحفل المزين بالورود" },
-  { src: bouquet, alt: "باقة ورد العروس" },
-  { src: table, alt: "طاولة الحفل بالشموع والورود" },
-  { src: rings, alt: "خاتما الزواج" },
-];
-
 function Names({ size = "lg", titles = true }: { size?: "lg" | "md"; titles?: boolean }) {
   const cls = size === "lg" ? "text-6xl" : "text-5xl";
   return (
@@ -66,14 +55,14 @@ function Invitation() {
       {/* Cover */}
       <header className="relative h-[100svh] min-h-[640px] overflow-hidden">
         <img
-          src={hero}
-          alt="فستان العروس والورود تحت قوس مضيء"
-          width={1024}
-          height={1792}
-          className="absolute inset-0 size-full scale-105 object-cover"
+          src={heroAsset.url}
+          alt="العريس والعروسة أمام قوس مضيء"
+          width={1080}
+          height={1920}
+          className="absolute inset-0 size-full object-cover"
         />
         <div className="bg-hero-fade absolute inset-0" />
-        <div className="relative z-20 mx-auto flex h-full max-w-md flex-col items-center justify-end px-6 pb-16 text-center">
+        <div className="relative z-20 mx-auto flex h-full max-w-md flex-col items-center justify-start px-6 pt-14 text-center">
           <p className="animate-rise font-display text-xl text-sand">حــفــل زفــاف</p>
           <div className="animate-rise mt-5 [animation-delay:200ms]">
             <Names />
@@ -182,26 +171,6 @@ function Invitation() {
               {invitation.bride} &amp; {invitation.groom}
             </p>
           </Reveal>
-        </section>
-
-        {/* Gallery */}
-        <section>
-          <Reveal>
-            <SectionTitle kicker="MOMENTS">لحظات من الحفل</SectionTitle>
-          </Reveal>
-          <div className="-mx-5 flex snap-x snap-mandatory gap-3 overflow-x-auto px-5 pb-2 [scrollbar-width:none]">
-            {MOMENTS.map((m) => (
-              <img
-                key={m.alt}
-                src={m.src}
-                alt={m.alt}
-                loading="lazy"
-                width={1024}
-                height={1280}
-                className="aspect-[4/5] w-[72%] shrink-0 snap-center rounded-3xl border object-cover shadow-glow"
-              />
-            ))}
-          </div>
         </section>
 
         {/* RSVP */}
