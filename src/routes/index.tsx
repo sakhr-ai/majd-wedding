@@ -62,7 +62,34 @@ function Invitation() {
             height={735}
             className="mx-auto block w-[min(100%,calc(34svh*1.162))] rounded-[1.4rem] object-contain"
           />
-        </div>
+      <a
+  href="#invite"
+  aria-label={`افتح دعوة زفاف ${invitation.groom} و${invitation.bride}`}
+  className="group relative mx-auto mt-5 flex size-40 items-center justify-center overflow-hidden rounded-full border border-gold/50 bg-gradient-to-br from-accent via-espresso to-background shadow-lg transition-[transform,box-shadow] duration-500 ease-out hover:scale-[1.03] hover:shadow-glow focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-4 focus-visible:ring-offset-background active:scale-[0.98] motion-reduce:transition-none motion-reduce:hover:scale-100"
+>
+  <span
+    aria-hidden="true"
+    className="pointer-events-none absolute inset-1 rounded-full border border-gold/35"
+  />
+
+  <span
+    dir="rtl"
+    className="relative z-10 flex flex-col items-center justify-center gap-1 px-3 text-center"
+  >
+    <span className="font-display text-lg leading-tight text-ivory">
+      {invitation.groom}
+    </span>
+    <span aria-hidden="true" className="font-script text-2xl leading-none text-gold-gradient">
+      &amp;
+    </span>
+    <span className="font-display text-lg leading-tight text-ivory">
+      {invitation.bride}
+    </span>
+    <span className="mt-2 text-xs text-sand/80 transition-colors duration-500 group-hover:text-gold">
+      افتح الدعوة
+    </span>
+  </span>
+</a>  </div>
 
         <div className="animate-rise glass-card mt-4 mx-4 rounded-3xl px-4 py-5 text-center [animation-delay:200ms]">
           <p className="font-display text-base text-sand">حــفــل زفــاف</p>
