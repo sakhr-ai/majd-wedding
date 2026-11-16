@@ -82,7 +82,7 @@ function Invitation() {
           </div>
         </div>
 
-        <a href="#invite" aria-label="انتقل للأسفل" className="animate-soft-pulse mt-6 flex justify-center text-sand">
+        <a href="#invite" aria-label="انتقل للأسفل" className="animate-soft-pulse mt-6 hidden justify-center text-sand tall:flex">
           <ChevronDown className="size-6" />
         </a>
       </header>
