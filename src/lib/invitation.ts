@@ -10,7 +10,7 @@ export const invitation = {
   dateISO: "2027-01-02T14:30:00+01:00",
   dayName: "السبت",
   dateText: "02.01.2027",
-  timeText: "02:30 مساءً",
+  timeText: "02:30 ظهراً",
   venue: "Akkurt Saal",
   address: ["Heerstraße 278", "47053 Duisburg، ألمانيا"],
   mapQuery: "Akkurt Saal, Heerstraße 278, 47053 Duisburg",
