@@ -3,6 +3,7 @@
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
+@custom-variant tall (@media (min-height: 760px));
 
 @theme inline {
   --font-display: "Aref Ruqaa", "Amiri", serif;

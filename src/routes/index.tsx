@@ -9,7 +9,7 @@ import { Rsvp } from "@/components/invite/Rsvp";
 import { SaveTheDate } from "@/components/invite/SaveTheDate";
 import { Wishes } from "@/components/invite/Wishes";
 import { invitation, mapsEmbedUrl, mapsUrl } from "@/lib/invitation";
-import heroAsset from "@/assets/couple-arch.jpg.asset.json";
+import heroAsset from "@/assets/couple-full.jpg.asset.json";
 
 const title = `حفل زفاف ${invitation.groom} & ${invitation.bride}`;
 const description = `يتشرفون بدعوتكم لحضور حفل زفافهما يوم ${invitation.dayName} ${invitation.dateText} في ${invitation.venue}.`;
@@ -35,7 +35,7 @@ const RULES = [
 ];
 
 function Names({ size = "lg", titles = true }: { size?: "lg" | "md"; titles?: boolean }) {
-  const cls = size === "lg" ? "text-6xl" : "text-5xl";
+  const cls = size === "lg" ? "text-[clamp(2.75rem,7svh,3.75rem)]" : "text-5xl";
   return (
     <div className="flex flex-col items-center leading-none">
       {titles && <span className="mb-2 text-sm tracking-[0.35em] text-sand">{invitation.groomTitle}</span>}
@@ -52,22 +52,24 @@ function Invitation() {
     <div dir="rtl" lang="ar" className="relative min-h-screen pb-32">
       <Petals />
 
-      {/* Cover */}
-      <header className="relative h-[100svh] min-h-[640px] overflow-hidden">
-        <img
-          src={heroAsset.url}
-          alt="العريس والعروسة أمام قوس مضيء"
-          width={1080}
-          height={1920}
-          className="absolute inset-0 size-full object-cover"
-        />
-        <div className="bg-hero-fade absolute inset-0" />
-        <div className="relative z-20 mx-auto flex h-full max-w-md flex-col items-center justify-start px-6 pt-14 text-center">
-          <p className="animate-rise font-display text-xl text-sand">حــفــل زفــاف</p>
-          <div className="animate-rise mt-5 [animation-delay:200ms]">
+      {/* Cover: whole photo in front, words on a small panel */}
+      <header className="relative mx-auto max-w-md px-5 py-5">
+        <div className="animate-rise glass-card p-1.5">
+          <img
+            src={heroAsset.url}
+            alt="العريس والعروسة أمام قوس مضيء"
+            width={854}
+            height={735}
+            className="mx-auto block w-[min(100%,calc(34svh*1.162))] rounded-[1.4rem] object-contain"
+          />
+        </div>
+
+        <div className="animate-rise glass-card mt-4 mx-4 rounded-3xl px-4 py-5 text-center [animation-delay:200ms]">
+          <p className="font-display text-base text-sand">حــفــل زفــاف</p>
+          <div className="mt-2">
             <Names />
           </div>
-          <div className="animate-rise mt-8 flex items-center gap-5 text-sm text-sand [animation-delay:400ms]">
+          <div className="mt-4 flex items-center justify-center gap-4 text-sm text-sand">
             <span className="flex items-center gap-1.5">
               <CalendarDays className="size-4 text-gold" />
               {invitation.dayName} {invitation.dateText}
@@ -78,10 +80,11 @@ function Invitation() {
               {invitation.timeText}
             </span>
           </div>
-          <a href="#invite" aria-label="انتقل للأسفل" className="animate-soft-pulse mt-10 text-sand">
-            <ChevronDown className="size-6" />
-          </a>
         </div>
+
+        <a href="#invite" aria-label="انتقل للأسفل" className="animate-soft-pulse mt-6 hidden justify-center text-sand tall:flex">
+          <ChevronDown className="size-6" />
+        </a>
       </header>
 
       <main className="relative z-20 mx-auto max-w-md space-y-20 px-5">
