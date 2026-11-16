@@ -52,22 +52,24 @@ function Invitation() {
     <div dir="rtl" lang="ar" className="relative min-h-screen pb-32">
       <Petals />
 
-      {/* Cover */}
-      <header className="relative h-[100svh] min-h-[640px] overflow-hidden">
-        <img
-          src={heroAsset.url}
-          alt="العريس والعروسة أمام قوس مضيء"
-          width={1080}
-          height={1920}
-          className="absolute inset-0 size-full object-cover"
-        />
-        <div className="bg-hero-fade absolute inset-0" />
-        <div className="relative z-20 mx-auto flex h-full max-w-md flex-col items-center justify-start px-6 pt-14 text-center">
-          <p className="animate-rise font-display text-xl text-sand">حــفــل زفــاف</p>
-          <div className="animate-rise mt-5 [animation-delay:200ms]">
+      {/* Cover: whole photo in front, words on a small panel */}
+      <header className="relative mx-auto max-w-md px-5 pt-8">
+        <div className="animate-rise glass-card overflow-hidden p-1.5">
+          <img
+            src={heroAsset.url}
+            alt="العريس والعروسة أمام قوس مضيء"
+            width={854}
+            height={735}
+            className="w-full rounded-[1.4rem] object-contain"
+          />
+        </div>
+
+        <div className="animate-rise glass-card relative z-20 -mt-5 mx-4 rounded-3xl px-4 py-6 text-center [animation-delay:200ms]">
+          <p className="font-display text-lg text-sand">حــفــل زفــاف</p>
+          <div className="mt-3">
             <Names />
           </div>
-          <div className="animate-rise mt-8 flex items-center gap-5 text-sm text-sand [animation-delay:400ms]">
+          <div className="mt-6 flex items-center justify-center gap-4 text-sm text-sand">
             <span className="flex items-center gap-1.5">
               <CalendarDays className="size-4 text-gold" />
               {invitation.dayName} {invitation.dateText}
@@ -78,10 +80,11 @@ function Invitation() {
               {invitation.timeText}
             </span>
           </div>
-          <a href="#invite" aria-label="انتقل للأسفل" className="animate-soft-pulse mt-10 text-sand">
-            <ChevronDown className="size-6" />
-          </a>
         </div>
+
+        <a href="#invite" aria-label="انتقل للأسفل" className="animate-soft-pulse mt-7 flex justify-center text-sand">
+          <ChevronDown className="size-6" />
+        </a>
       </header>
 
       <main className="relative z-20 mx-auto max-w-md space-y-20 px-5">
