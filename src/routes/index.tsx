@@ -38,10 +38,10 @@ function Names({ size = "lg", titles = true }: { size?: "lg" | "md"; titles?: bo
   const cls = size === "lg" ? "text-[clamp(2.75rem,7svh,3.75rem)]" : "text-5xl";
   return (
     <div className="flex flex-col items-center leading-none">
-      {titles && <span className="mb-2 text-sm tracking-[0.35em] text-sand">{invitation.groomTitle}</span>}
+      {titles && <span className="mb-2 text-sm text-sand">{invitation.groomTitle}</span>}
       <span className={`font-display ${cls} text-ivory`}>{invitation.groom}</span>
       <span className="font-script my-4 text-5xl leading-none text-gold-gradient">&amp;</span>
-      {titles && <span className="mb-2 text-sm tracking-[0.35em] text-sand">{invitation.brideTitle}</span>}
+      {titles && <span className="mb-2 text-sm text-sand">{invitation.brideTitle}</span>}
       <span className={`font-display ${cls} text-ivory`}>{invitation.bride}</span>
     </div>
   );
