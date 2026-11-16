@@ -9,7 +9,7 @@ import { Rsvp } from "@/components/invite/Rsvp";
 import { SaveTheDate } from "@/components/invite/SaveTheDate";
 import { Wishes } from "@/components/invite/Wishes";
 import { invitation, mapsEmbedUrl, mapsUrl } from "@/lib/invitation";
-import heroAsset from "@/assets/couple-arch.jpg.asset.json";
+import heroAsset from "@/assets/couple-full.jpg.asset.json";
 
 const title = `حفل زفاف ${invitation.groom} & ${invitation.bride}`;
 const description = `يتشرفون بدعوتكم لحضور حفل زفافهما يوم ${invitation.dayName} ${invitation.dateText} في ${invitation.venue}.`;
