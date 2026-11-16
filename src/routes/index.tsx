@@ -9,7 +9,7 @@ import { Rsvp } from "@/components/invite/Rsvp";
 import { SaveTheDate } from "@/components/invite/SaveTheDate";
 import { Wishes } from "@/components/invite/Wishes";
 import { invitation, mapsEmbedUrl, mapsUrl } from "@/lib/invitation";
-import heroAsset from "@/assets/couple-full.jpg.asset.json";
+import heroAsset from "@/assets/couple-full.png";
 
 const title = `حفل زفاف ${invitation.groom} & ${invitation.bride}`;
 const description = `يتشرفون بدعوتكم لحضور حفل زفافهما يوم ${invitation.dayName} ${invitation.dateText} في ${invitation.venue}.`;
@@ -56,7 +56,7 @@ function Invitation() {
       <header className="relative mx-auto max-w-md px-5 py-5">
         <div className="animate-rise glass-card p-1.5">
           <img
-            src={heroAsset.url}
+            src={heroAsset}
             alt="العريس والعروسة أمام قوس مضيء"
             width={854}
             height={735}
