@@ -30,8 +30,8 @@ export const Route = createFileRoute("/")({
 });
 
 const RULES = [
-  { icon: Camera, label: "‏ حفل الزفاف للرجال والنساء منفصل في نفس التوقيت " },
-  { icon: Clock, label: "يرجى الحضور في الوقت المحدد" },
+  
+  { icon: Clock, label:  "‏ حفل الزفاف للرجال والنساء منفصل في نفس التوقيت" },
   { icon: Lock, label: "الدعوة خاصة" },
 ];
 
