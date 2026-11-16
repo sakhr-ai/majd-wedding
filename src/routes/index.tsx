@@ -35,7 +35,7 @@ const RULES = [
 ];
 
 function Names({ size = "lg", titles = true }: { size?: "lg" | "md"; titles?: boolean }) {
-  const cls = size === "lg" ? "text-6xl" : "text-5xl";
+  const cls = size === "lg" ? "text-[clamp(2.75rem,7svh,3.75rem)]" : "text-5xl";
   return (
     <div className="flex flex-col items-center leading-none">
       {titles && <span className="mb-2 text-sm tracking-[0.35em] text-sand">{invitation.groomTitle}</span>}
@@ -53,23 +53,23 @@ function Invitation() {
       <Petals />
 
       {/* Cover: whole photo in front, words on a small panel */}
-      <header className="relative mx-auto flex min-h-[100svh] max-w-md flex-col justify-center px-5 py-10">
-        <div className="animate-rise glass-card overflow-hidden p-1.5">
+      <header className="relative mx-auto max-w-md px-5 py-5">
+        <div className="animate-rise glass-card p-1.5">
           <img
             src={heroAsset.url}
             alt="العريس والعروسة أمام قوس مضيء"
             width={854}
             height={735}
-            className="w-full rounded-[1.4rem] object-contain"
+            className="mx-auto block w-[min(100%,calc(34svh*1.162))] rounded-[1.4rem] object-contain"
           />
         </div>
 
-        <div className="animate-rise glass-card mt-4 mx-4 rounded-3xl px-4 py-6 text-center [animation-delay:200ms]">
-          <p className="font-display text-lg text-sand">حــفــل زفــاف</p>
-          <div className="mt-3">
+        <div className="animate-rise glass-card mt-4 mx-4 rounded-3xl px-4 py-5 text-center [animation-delay:200ms]">
+          <p className="font-display text-base text-sand">حــفــل زفــاف</p>
+          <div className="mt-2">
             <Names />
           </div>
-          <div className="mt-6 flex items-center justify-center gap-4 text-sm text-sand">
+          <div className="mt-4 flex items-center justify-center gap-4 text-sm text-sand">
             <span className="flex items-center gap-1.5">
               <CalendarDays className="size-4 text-gold" />
               {invitation.dayName} {invitation.dateText}
@@ -82,7 +82,7 @@ function Invitation() {
           </div>
         </div>
 
-        <a href="#invite" aria-label="انتقل للأسفل" className="animate-soft-pulse mt-8 flex justify-center text-sand">
+        <a href="#invite" aria-label="انتقل للأسفل" className="animate-soft-pulse mt-6 flex justify-center text-sand">
           <ChevronDown className="size-6" />
         </a>
       </header>
