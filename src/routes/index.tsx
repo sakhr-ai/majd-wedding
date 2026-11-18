@@ -149,22 +149,7 @@ function Invitation() {
             />
           </div>
 
-          <div className="animate-rise glass-card mt-4 mx-4 rounded-3xl px-4 py-5 text-center [animation-delay:200ms]">
-            <p className="font-display text-base text-sand">حــفــل زفــاف</p>
-            <div className="mt-2">
-              <Names />
-            </div>
-            <div className="mt-4 flex items-center justify-center gap-4 text-sm text-sand">
-              <span className="flex items-center gap-1.5">
-                <CalendarDays className="size-4 text-gold" />
-                {invitation.dayName} {invitation.dateText}
-              </span>
-              <span className="h-4 w-px bg-border" />
-              <span className="flex items-center gap-1.5">
-                <Clock className="size-4 text-gold" />
-                {invitation.timeText}
-              </span>
-            </div>
+         
           </div>
 
           <a href="#invite" aria-label="انتقل للأسفل" className="animate-soft-pulse mt-6 hidden justify-center text-sand tall:flex">
@@ -186,6 +171,22 @@ function Invitation() {
               بانتظار تشريفكم لنا لنحتفل معاً بهذه المناسبة السعيدة 💐
             </p>
           </Reveal>
+           <div className="animate-rise glass-card mt-4 mx-4 rounded-3xl px-4 py-5 text-center [animation-delay:200ms]">
+            <p className="font-display text-base text-sand">حــفــل زفــاف</p>
+            <div className="mt-2">
+              <Names />
+            </div>
+            <div className="mt-4 flex items-center justify-center gap-4 text-sm text-sand">
+              <span className="flex items-center gap-1.5">
+                <CalendarDays className="size-4 text-gold" />
+                {invitation.dayName} {invitation.dateText}
+              </span>
+              <span className="h-4 w-px bg-border" />
+              <span className="flex items-center gap-1.5">
+                <Clock className="size-4 text-gold" />
+                {invitation.timeText}
+              </span>
+            </div>
         </section>
 
         {/* Location */}
