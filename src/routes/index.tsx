@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { CalendarDays, Camera, ChevronDown, Clock, Lock, MapPin, Navigation } from "lucide-react";
+import { CalendarDays, ChevronDown, Clock, Lock, MapPin, Navigation } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { BottomNav } from "@/components/invite/BottomNav";
@@ -13,10 +13,7 @@ import { invitation, mapsEmbedUrl, mapsUrl } from "@/lib/invitation";
 import heroAsset from "@/assets/couple-full.png";
 
 const title = `حفل زفاف ${invitation.groom} & ${invitation.bride}`;
-const description = `الى من لامست قلوبهم شغاف قلوبنا
-اليوم نقاسمكم سرورنا وجميل شعورنا
-بكل الحب‏ يتشرف كل من السيد فهد الموسى والسيد حسن عبدالله  
-بدعوتكم لحضور حفل زفاف ولديهما ${invitation.dayName} ${invitation.dateText} في ${invitation.venue}.`;
+const description = `${invitation.inviteText.opening} ${invitation.inviteText.introduction} السيد ${invitation.inviteText.father1} والسيد ${invitation.inviteText.father2} ${invitation.inviteText.closing} يوم ${invitation.dayName} ${invitation.dateText} في ${invitation.venue}.`;
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -97,7 +94,7 @@ function InvitationCover({ isOpening, onOpen }: { isOpening: boolean; onOpen: ()
       <button
         type="button"
         onClick={onOpen}
-        aria-label={`افتح دعوة زفاف ${"M"} و${"H"}`}
+        aria-label={`افتح دعوة زفاف ${invitation.groom} و${invitation.bride}`}
         className={`group relative z-10 flex size-40 flex-col items-center justify-center gap-1 overflow-hidden rounded-full border border-sand/35 bg-espresso/30 px-4 text-center text-sand shadow-glow backdrop-blur-md transition-[transform,opacity,filter,box-shadow,border-color] duration-700 ease-out hover:scale-105 hover:border-gold/65 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-4 focus-visible:ring-offset-espresso active:scale-95 motion-reduce:transition-none motion-reduce:hover:scale-100 ${
           isOpening ? "scale-125 opacity-0 blur-sm" : "opacity-100"
         }`}
@@ -106,11 +103,11 @@ function InvitationCover({ isOpening, onOpen }: { isOpening: boolean; onOpen: ()
           aria-hidden="true"
           className="pointer-events-none absolute inset-1 rounded-full border border-sand/20"
         />
-        <span className="font-display text-xl leading-tight text-ivory">{"M"}</span>
+        <span className="font-display text-xl leading-tight text-ivory">{invitation.groom}</span>
         <span aria-hidden="true" className="font-script text-3xl leading-none text-gold-gradient">
           &amp;
         </span>
-        <span className="font-display text-xl leading-tight text-ivory">{"H"}</span>
+        <span className="font-display text-xl leading-tight text-ivory">{invitation.bride}</span>
         <span className="mt-2 text-[10px] tracking-[0.28em] text-sand/70 transition-colors duration-500 group-hover:text-gold">
           OPEN
         </span>
@@ -165,27 +162,35 @@ function Invitation() {
               <p className="font-display text-2xl leading-loose text-ivory">
                 بسم الله الرحمن الرحيم
               </p>
+
               <div className="mt-6 space-y-2 text-lg leading-loose text-sand">
-  <p>{invitation.inviteText.opening}</p>
-  <p>{invitation.inviteText.introduction}</p>
-  <p>
-    السيد <strong className="font-bold text-ivory">{invitation.inviteText.father1}</strong>
-    {" والسيد "}
-    <strong className="font-bold text-ivory">{invitation.inviteText.father2}</strong>
-  </p>
-  <p>{invitation.inviteText.closing}</p>
-</div>
+                <p>{invitation.inviteText.opening}</p>
+                <p>{invitation.inviteText.introduction}</p>
+                <p>
+                  السيد{" "}
+                  <strong className="font-bold text-ivory">
+                    {invitation.inviteText.father1}
+                  </strong>
+                  {" والسيد "}
+                  <strong className="font-bold text-ivory">
+                    {invitation.inviteText.father2}
+                  </strong>
+                </p>
+                <p>{invitation.inviteText.closing}</p>
+              </div>
+
               <p className="mt-6 text-sm text-muted-foreground">
                 يوم {invitation.dayName} الموافق {invitation.dateText}
               </p>
               <p className="mt-3 font-display text-2xl text-gold-gradient">
-                 {invitation.venue} 
+                {invitation.venue}
               </p>
               <p className="mt-6 text-sm leading-relaxed text-muted-foreground">
-                بانتظار تشريفكم لنا لنحتفل معاً بهذه المناسبة السعيدة 
+                بانتظار تشريفكم لنا لنحتفل معاً بهذه المناسبة السعيدة
               </p>
             </Reveal>
 
+            {/* Names and event details follow the invitation text */}
             <div className="animate-rise glass-card mt-4 mx-4 rounded-3xl px-4 py-5 text-center [animation-delay:200ms]">
               <p className="font-display text-base text-sand">حــفــل زفــاف</p>
               <div className="mt-2">
@@ -257,7 +262,7 @@ function Invitation() {
 
           {/* Etiquette */}
           <section>
-            <Reveal className="grid grid-cols-3 gap-2.5">
+            <Reveal className="mx-auto grid max-w-sm grid-cols-2 gap-2.5">
               {RULES.map(({ icon: Icon, label }) => (
                 <div
                   key={label}
@@ -270,14 +275,19 @@ function Invitation() {
             </Reveal>
           </section>
 
-          {/* Couple message */}
+          {/* Groom's message */}
           <section className="text-center">
             <Reveal>
-              <span className="font-script text-6xl leading-none text-gold/40">“</span>
-              <p className="-mt-4 text-lg leading-loose text-ivory">{invitation.coupleMessage}</p>
-              <p className="mt-5 font-display text-xl text-gold-gradient">
-                {invitation.bride} &amp; {invitation.groom}
-              </p>
+              <SectionTitle kicker="FROM THE GROOM">كلمة العريس</SectionTitle>
+              <img
+                src={heroAsset}
+                alt="العريس والعروسة أمام قوس مضيء"
+                width={854}
+                height={735}
+                className="mx-auto mb-5 h-48 w-48 rounded-2xl object-cover"
+              />
+              <p className="text-lg leading-loose text-ivory">{invitation.groomMessage}</p>
+              <p className="mt-5 font-display text-xl text-gold-gradient">{invitation.groom}</p>
             </Reveal>
           </section>
 
