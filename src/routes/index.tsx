@@ -11,6 +11,7 @@ import { SaveTheDate } from "@/components/invite/SaveTheDate";
 import { Wishes } from "@/components/invite/Wishes";
 import { invitation, mapsEmbedUrl, mapsUrl } from "@/lib/invitation";
 import heroAsset from "@/assets/couple-full.png";
+import groomPhoto from "@/assets/groom-photo.jpg";
 
 const title = `حفل زفاف ${invitation.groom} & ${invitation.bride}`;
 const description = `${invitation.inviteText.opening} ${invitation.inviteText.introduction} السيد ${invitation.inviteText.father1} والسيد ${invitation.inviteText.father2} ${invitation.inviteText.closing} يوم ${invitation.dayName} ${invitation.dateText} في ${invitation.venue}.`;
@@ -280,7 +281,7 @@ function Invitation() {
             <Reveal>
               <SectionTitle kicker="FROM THE GROOM">كلمة العريس</SectionTitle>
               <img
-                src={heroAsset}
+                src={groomPhoto}
                 alt="العريس والعروسة أمام قوس مضيء"
                 width={854}
                 height={735}
