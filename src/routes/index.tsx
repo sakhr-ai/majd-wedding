@@ -103,11 +103,11 @@ function InvitationCover({ isOpening, onOpen }: { isOpening: boolean; onOpen: ()
           aria-hidden="true"
           className="pointer-events-none absolute inset-1 rounded-full border border-sand/20"
         />
-        <span className="font-display text-xl leading-tight text-ivory">{invitation.groom}</span>
+        <span className="font-display text-xl leading-tight text-ivory">{"M"}</span>
         <span aria-hidden="true" className="font-script text-3xl leading-none text-gold-gradient">
           &amp;
         </span>
-        <span className="font-display text-xl leading-tight text-ivory">{invitation.bride}</span>
+        <span className="font-display text-xl leading-tight text-ivory">{"H"}</span>
         <span className="mt-2 text-[10px] tracking-[0.28em] text-sand/70 transition-colors duration-500 group-hover:text-gold">
           OPEN
         </span>
