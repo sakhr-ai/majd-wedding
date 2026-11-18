@@ -285,7 +285,7 @@ function Invitation() {
                 alt="العريس والعروسة أمام قوس مضيء"
                 width={854}
                 height={735}
-                className="mx-auto mb-5 h-48 w-48 rounded-2xl object-cover"
+                className="mx-auto mb-5 h-64 w-64 rounded-2xl object-cover"
               />
               <p className="text-lg leading-loose text-ivory">{invitation.groomMessage}</p>
               <p className="mt-5 font-display text-xl text-gold-gradient">{invitation.groom}</p>
