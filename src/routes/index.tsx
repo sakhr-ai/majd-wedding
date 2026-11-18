@@ -165,7 +165,16 @@ function Invitation() {
               <p className="font-display text-2xl leading-loose text-ivory">
                 بسم الله الرحمن الرحيم
               </p>
-              <p className="mt-6 text-lg leading-loose text-sand">{invitation.inviteText}</p>
+              <div className="mt-6 space-y-2 text-lg leading-loose text-sand">
+  <p>{invitation.inviteText.opening}</p>
+  <p>{invitation.inviteText.introduction}</p>
+  <p>
+    السيد <strong className="font-bold text-ivory">{invitation.inviteText.father1}</strong>
+    {" والسيد "}
+    <strong className="font-bold text-ivory">{invitation.inviteText.father2}</strong>
+  </p>
+  <p>{invitation.inviteText.closing}</p>
+</div>
               <p className="mt-6 text-sm text-muted-foreground">
                 يوم {invitation.dayName} الموافق {invitation.dateText}
               </p>
