@@ -13,7 +13,10 @@ import { invitation, mapsEmbedUrl, mapsUrl } from "@/lib/invitation";
 import heroAsset from "@/assets/couple-full.png";
 
 const title = `حفل زفاف ${invitation.groom} & ${invitation.bride}`;
-const description = `يتشرفون بدعوتكم لحضور حفل زفافهما يوم ${invitation.dayName} ${invitation.dateText} في ${invitation.venue}.`;
+const description = `الى من لامست قلوبهم شغاف قلوبنا
+اليوم نقاسمكم سرورنا وجميل شعورنا
+بكل الحب‏ يتشرف كل من السيد فهد الموسى والسيد حسن عبدالله  
+بدعوتكم لحضور حفل زفاف ولديهما ${invitation.dayName} ${invitation.dateText} في ${invitation.venue}.`;
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -103,11 +106,11 @@ function InvitationCover({ isOpening, onOpen }: { isOpening: boolean; onOpen: ()
           aria-hidden="true"
           className="pointer-events-none absolute inset-1 rounded-full border border-sand/20"
         />
-        <span className="font-display text-xl leading-tight text-ivory">{invitation.groom}</span>
+        <span className="font-display text-xl leading-tight text-ivory">{"M"}</span>
         <span aria-hidden="true" className="font-script text-3xl leading-none text-gold-gradient">
           &amp;
         </span>
-        <span className="font-display text-xl leading-tight text-ivory">{invitation.bride}</span>
+        <span className="font-display text-xl leading-tight text-ivory">{"H"}</span>
         <span className="mt-2 text-[10px] tracking-[0.28em] text-sand/70 transition-colors duration-500 group-hover:text-gold">
           OPEN
         </span>
@@ -167,10 +170,10 @@ function Invitation() {
                 يوم {invitation.dayName} الموافق {invitation.dateText}
               </p>
               <p className="mt-3 font-display text-2xl text-gold-gradient">
-                ❀ {invitation.venue} ❀
+                 {invitation.venue} 
               </p>
               <p className="mt-6 text-sm leading-relaxed text-muted-foreground">
-                بانتظار تشريفكم لنا لنحتفل معاً بهذه المناسبة السعيدة 💐
+                بانتظار تشريفكم لنا لنحتفل معاً بهذه المناسبة السعيدة 
               </p>
             </Reveal>
 
