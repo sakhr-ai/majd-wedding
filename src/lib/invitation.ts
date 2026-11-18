@@ -1,4 +1,4 @@
-// Single source of truth for the invitation's details. Replace with the real couple's info.
+// Single source of truth for the invitation's details.
 export const invitation = {
   groom: "مجد",
   bride: "هناء",
@@ -6,24 +6,28 @@ export const invitation = {
   brideTitle: "الآنسة",
   groomLatin: "Majed",
   brideLatin: "Hanaa",
+
   // 2 January 2027, 2:30 PM Duisburg time (UTC+1, winter)
   dateISO: "2027-01-02T14:30:00+01:00",
   dayName: "السبت",
   dateText: "02.01.2027",
-  timeText: "02:00 ظهراً",
+  timeText: "02:30 ظهراً",
+
   venue: "Akkurt Saal",
   address: ["Heerstraße 278", "47053 Duisburg، ألمانيا"],
   mapQuery: "Akkurt Saal, Heerstraße 278, 47053 Duisburg",
   contactWhatsapp: "966500000000",
+
   inviteText: {
-  opening: "إلى من لامست قلوبهم شغاف قلوبنا، اليوم نقاسمكم سرورنا وجميل شعورنا.",
-  introduction: "بكل الحب، يتشرف كل من",
-  father1: "فهد الموسى",
-  father2: "حسن عبدالله",
-  closing: "بدعوتكم لحضور حفل زفاف ولديهما، وذلك بمشيئة الله.",
-}
-  coupleMessage:
-    "يسعدنا ويشرّفنا حضوركم ومشاركتكم فرحتنا في يوم زفافنا، فوجودكم يعني لنا الكثير ويزيد فرحتنا جمالاً. ولا نرجو منكم سوى دعوة صادقة من القلب، بأن يبارك الله لنا ويجمع بيننا على المحبة والمودة",
+    opening: "إلى من لامست قلوبهم شغاف قلوبنا، اليوم نقاسمكم سرورنا وجميل شعورنا.",
+    introduction: "بكل الحب، يتشرف كل من",
+    father1: "فهد الموسى",
+    father2: "حسن عبدالله",
+    closing: "بدعوتكم لحضور حفل زفاف ولديهما، وذلك بمشيئة الله.",
+  },
+
+  groomMessage:
+    "أهلي وأحبابي، يسعدني أن أشارككم فرحتي في يوم زفافي، وأتشرف بحضوركم ومشاركتكم لنا هذه المناسبة السعيدة. وجودكم يزيد فرحتي جمالاً، وأسأل الله أن يديم بيننا المحبة والمودة.",
 } as const;
 
 export const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(invitation.mapQuery)}`;
