@@ -14,7 +14,7 @@ import heroAsset from "@/assets/couple-full.png";
 import groomPhoto from "@/assets/groom-photo.jpg";
 
 const title = `حفل زفاف ${invitation.groom} & ${invitation.bride}`;
-const description = `${invitation.inviteText.opening} ${invitation.inviteText.introduction} السيد ${invitation.inviteText.father1} والسيد ${invitation.inviteText.father2} ${invitation.inviteText.closing} يوم ${invitation.dayName} ${invitation.dateText} في ${invitation.venue}.`;
+const description = `${invitation.inviteText.opening} ${invitation.inviteText.introduction} السيد ${invitation.inviteText.father1} والسيد ${invitation.inviteText.father2} ${invitation.inviteText.closing} ${invitation.dateIntro} يوم ${invitation.dayName} الموافق ${invitation.dateText} في ${invitation.venue}.`;
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -37,6 +37,7 @@ const RULES = [
 
 function Names({ size = "lg", titles = true }: { size?: "lg" | "md"; titles?: boolean }) {
   const cls = size === "lg" ? "text-[clamp(2.75rem,7svh,3.75rem)]" : "text-5xl";
+
   return (
     <div className="flex flex-col items-center leading-none">
       {titles && <span className="mb-2 text-sm text-sand">{invitation.groomTitle}</span>}
@@ -157,7 +158,7 @@ function Invitation() {
         </header>
 
         <main className="relative z-20 mx-auto max-w-md space-y-20 px-5">
-          {/* Invitation text */}
+          {/* Invitation text and names */}
           <section id="invite" className="pt-8 text-center">
             <Reveal>
               <p className="font-display text-2xl leading-loose text-ivory">
@@ -179,38 +180,35 @@ function Invitation() {
                 </p>
                 <p>{invitation.inviteText.closing}</p>
               </div>
-                {/* Names and event details follow the invitation text */}
-            <div className="animate-rise glass-card mt-4 mx-4 rounded-3xl px-4 py-5 text-center [animation-delay:200ms]">
+            </Reveal>
+
+            <div className="animate-rise glass-card mx-4 mt-6 rounded-3xl px-4 py-5 text-center">
               <p className="font-display text-base text-sand">حــفــل زفــاف</p>
               <div className="mt-2">
                 <Names />
               </div>
-              <div className="mt-4 flex items-center justify-center gap-4 text-sm text-sand">
-                <span className="flex items-center gap-1.5">
-                  <CalendarDays className="size-4 text-gold" />
-                  {invitation.dayName} {invitation.dateText}
-                </span>
-                <span className="h-4 w-px bg-border" />
-                <span className="flex items-center gap-1.5">
-                  <Clock className="size-4 text-gold" />
-                  {invitation.timeText}
-                </span>
-              </div>
             </div>
-          </section>
 
-              <p className="mt-6 text-sm text-muted-foreground">
-                وذلك بمشيئة الله، يوم {invitation.dayName} الموافق {invitation.dateText}
+            <Reveal>
+              <p className="mt-6 flex items-center justify-center gap-2 text-sm text-muted-foreground">
+                <CalendarDays className="size-4 text-gold" />
+                {invitation.dateIntro} يوم {invitation.dayName} الموافق {invitation.dateText}
               </p>
+
+              <p className="mt-2 flex items-center justify-center gap-2 text-sm text-muted-foreground">
+                <Clock className="size-4 text-gold" />
+                {invitation.timeText}
+              </p>
+
               <p className="mt-3 font-display text-2xl text-gold-gradient">
                 {invitation.venue}
               </p>
+
               <p className="mt-6 text-sm leading-relaxed text-muted-foreground">
                 بانتظار تشريفكم لنا لنحتفل معاً بهذه المناسبة السعيدة
               </p>
             </Reveal>
-
-          
+          </section>
 
           {/* Location */}
           <section id="location">
