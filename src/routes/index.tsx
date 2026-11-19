@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { CalendarDays, ChevronDown, Clock, Lock, MapPin, Navigation } from "lucide-react";
+import { useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { BottomNav } from "@/components/invite/BottomNav";
 import { Countdown } from "@/components/invite/Countdown";
@@ -11,7 +12,8 @@ import { Wishes } from "@/components/invite/Wishes";
 import { invitation, mapsEmbedUrl, mapsUrl } from "@/lib/invitation";
 import heroAsset from "@/assets/couple-full.png";
 import groomPhoto from "@/assets/groom-photo.jpg";
-import { useRef, useState } from "react";
+
+
 
 const title = `${invitation.groom} & ${invitation.bride}`;
 const description = `${invitation.inviteText.opening} ${invitation.inviteText.introduction} السيد ${invitation.inviteText.father1} والسيد ${invitation.inviteText.father2} ${invitation.inviteText.closing} ${invitation.dateIntro} يوم ${invitation.dayName} الموافق ${invitation.dateText} في ${invitation.venue}.`;
