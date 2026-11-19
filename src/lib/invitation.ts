@@ -11,7 +11,7 @@ export const invitation = {
   dateISO: "2027-01-02T14:30:00+01:00",
   dayName: "السبت",
   dateText: "02.01.2027",
-  timeText: "02:30 ظهراً",
+  timeText: "02:00 ظهراً",
 
   venue: "Akkurt Saal",
   address: ["Heerstraße 278", "47053 Duisburg، ألمانيا"],
@@ -23,7 +23,7 @@ export const invitation = {
     introduction: "بكل الحب، يتشرف كل من",
     father1: "فهد الموسى",
     father2: "حسن عبدالله",
-    closing: "بدعوتكم لحضور حفل زفاف ولديهما، وذلك بمشيئة الله.",
+    closing: "بدعوتكم لحضور حفل زفاف ولديهما .",
   },
   
    groomMessage:
