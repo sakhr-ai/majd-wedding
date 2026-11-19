@@ -16,14 +16,14 @@ export const invitation = {
   venue: "Akkurt Saal",
   address: ["Heerstraße 278", "47053 Duisburg، ألمانيا"],
   mapQuery: "Akkurt Saal, Heerstraße 278, 47053 Duisburg",
-  contactWhatsapp: "966500000000",
+  contactWhatsapp: "+4915735802627",
 
   inviteText: {
     opening: "إلى من لامست قلوبهم شغاف قلوبنا، اليوم نقاسمكم سرورنا وجميل شعورنا.",
     introduction: "بكل الحب، يتشرف كل من",
     father1: "فهد الموسى",
     father2: "حسن عبدالله",
-    closing: "بدعوتكم لحضور حفل زفاف ولديهما",
+    closing: " بدعوتكم لحضور حفل زفاف ولديهما",
   },
   
    groomMessage:
