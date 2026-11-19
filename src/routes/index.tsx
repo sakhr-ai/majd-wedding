@@ -189,13 +189,13 @@ function Invitation() {
             </div>
 
             <Reveal>
-              <p className="mt-6 flex items-center justify-center gap-2 text-sm text-muted-foreground">
-                <CalendarDays className="size-4 text-gold" />
+              <p className="mt-6 flex items-center justify-center gap-2 text-sm font-bold text-muted-foreground">
+                <CalendarDays className="size-6 text-gold" />
                 {invitation.dateIntro} وذلك بمشيئة الله يوم  {invitation.dayName} الموافق {invitation.dateText}
               </p>
 
-              <p className="mt-2 flex items-center justify-center gap-2 text-sm text-muted-foreground">
-                <Clock className="size-4 text-gold" />
+              <p className="mt-2 flex items-center justify-center gap-2 text-sm font-bold text-muted-foreground">
+                <Clock className="size-6 text-gold" />
                 {invitation.timeText}
               </p>
 
