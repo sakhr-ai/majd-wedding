@@ -1,6 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { CalendarDays, ChevronDown, Clock, Lock, MapPin, Navigation } from "lucide-react";
-import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { BottomNav } from "@/components/invite/BottomNav";
 import { Countdown } from "@/components/invite/Countdown";
