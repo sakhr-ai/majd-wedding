@@ -192,7 +192,7 @@ function Invitation() {
             <Reveal>
               <p className="mt-6 flex items-center justify-center gap-2 text-sm text-muted-foreground">
                 <CalendarDays className="size-4 text-gold" />
-                {invitation.dateIntro} يوم {invitation.dayName} الموافق {invitation.dateText}
+                {invitation.dateIntro} وذلك بمشيئة الله يوم  {invitation.dayName} الموافق {invitation.dateText}
               </p>
 
               <p className="mt-2 flex items-center justify-center gap-2 text-sm text-muted-foreground">
