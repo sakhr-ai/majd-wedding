@@ -179,19 +179,7 @@ function Invitation() {
                 </p>
                 <p>{invitation.inviteText.closing}</p>
               </div>
-
-              <p className="mt-6 text-sm text-muted-foreground">
-                يوم {invitation.dayName} الموافق {invitation.dateText}
-              </p>
-              <p className="mt-3 font-display text-2xl text-gold-gradient">
-                {invitation.venue}
-              </p>
-              <p className="mt-6 text-sm leading-relaxed text-muted-foreground">
-                بانتظار تشريفكم لنا لنحتفل معاً بهذه المناسبة السعيدة
-              </p>
-            </Reveal>
-
-            {/* Names and event details follow the invitation text */}
+                {/* Names and event details follow the invitation text */}
             <div className="animate-rise glass-card mt-4 mx-4 rounded-3xl px-4 py-5 text-center [animation-delay:200ms]">
               <p className="font-display text-base text-sand">حــفــل زفــاف</p>
               <div className="mt-2">
@@ -210,6 +198,19 @@ function Invitation() {
               </div>
             </div>
           </section>
+
+              <p className="mt-6 text-sm text-muted-foreground">
+                وذلك بمشيئة الله، يوم {invitation.dayName} الموافق {invitation.dateText}
+              </p>
+              <p className="mt-3 font-display text-2xl text-gold-gradient">
+                {invitation.venue}
+              </p>
+              <p className="mt-6 text-sm leading-relaxed text-muted-foreground">
+                بانتظار تشريفكم لنا لنحتفل معاً بهذه المناسبة السعيدة
+              </p>
+            </Reveal>
+
+          
 
           {/* Location */}
           <section id="location">
