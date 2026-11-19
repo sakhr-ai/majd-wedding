@@ -13,7 +13,7 @@ import { invitation, mapsEmbedUrl, mapsUrl } from "@/lib/invitation";
 import heroAsset from "@/assets/couple-full.png";
 import groomPhoto from "@/assets/groom-photo.jpg";
 
-const title = `حفل زفاف ${invitation.groom} & ${invitation.bride}`;
+const title = `${invitation.groom} & ${invitation.bride}`;
 const description = `${invitation.inviteText.opening} ${invitation.inviteText.introduction} السيد ${invitation.inviteText.father1} والسيد ${invitation.inviteText.father2} ${invitation.inviteText.closing} ${invitation.dateIntro} يوم ${invitation.dayName} الموافق ${invitation.dateText} في ${invitation.venue}.`;
 
 export const Route = createFileRoute("/")({
@@ -183,7 +183,6 @@ function Invitation() {
             </Reveal>
 
             <div className="animate-rise glass-card mx-4 mt-6 rounded-3xl px-4 py-5 text-center">
-              <p className="font-display text-base text-sand">حــفــل زفــاف</p>
               <div className="mt-2">
                 <Names />
               </div>
@@ -205,7 +204,6 @@ function Invitation() {
               </p>
 
               <p className="mt-6 text-sm leading-relaxed text-muted-foreground">
-                بانتظار تشريفكم لنا لنحتفل معاً بهذه المناسبة السعيدة
               </p>
             </Reveal>
           </section>
