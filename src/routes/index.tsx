@@ -18,19 +18,83 @@ import groomPhoto from "@/assets/groom-photo.jpg";
 const title = `${invitation.groom} & ${invitation.bride}`;
 const description = `${invitation.inviteText.opening} ${invitation.inviteText.introduction} السيد ${invitation.inviteText.father1} والسيد ${invitation.inviteText.father2} ${invitation.inviteText.closing} ${invitation.dateIntro} يوم ${invitation.dayName} الموافق ${invitation.dateText} في ${invitation.venue}.`;
 
+
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title },
-      { name: "description", content: description },
-      { property: "og:title", content: title },
-      { property: "og:description", content: description },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
+      { title: "مجد & هناء 💍" },
+      {
+        name: "description",
+        content: description,
+      },
+
+      // Open Graph - WhatsApp, Facebook, Telegram
+      {
+        property: "og:title",
+        content: "دعوة حفل زفاف",
+      },
+      {
+        property: "og:description",
+        content: description,
+      },
+      {
+        property: "og:type",
+        content: "website",
+      },
+      {
+        property: "og:url",
+        content: "https://majd-wedding.invitation-1.workers.dev/",
+      },
+      {
+        property: "og:image",
+        content:
+          "https://majd-wedding.invitation-1.workers.dev/og-wedding.jpg",
+      },
+      {
+        property: "og:image:secure_url",
+        content:
+          "https://majd-wedding.invitation-1.workers.dev/og-wedding.jpg",
+      },
+      {
+        property: "og:image:type",
+        content: "image/jpeg",
+      },
+      {
+        property: "og:image:width",
+        content: "1200",
+      },
+      {
+        property: "og:image:height",
+        content: "630",
+      },
+      {
+        property: "og:image:alt",
+        content: "دعوة حفل زفاف",
+      },
+
+      // Twitter / X
+      {
+        name: "twitter:card",
+        content: "summary_large_image",
+      },
+      {
+        name: "twitter:title",
+        content: "دعوة حفل زفاف",
+      },
+      {
+        name: "twitter:description",
+        content: description,
+      },
+      {
+        name: "twitter:image",
+        content:
+          "https://majd-wedding.invitation-1.workers.dev/og-wedding.jpg",
+      },
     ],
   }),
   component: Invitation,
 });
+
 
 const RULES = [
   { icon: Clock, label: "‏ حفل الزفاف للرجال والنساء منفصل في نفس التوقيت" },
