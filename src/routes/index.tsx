@@ -12,6 +12,7 @@ import { Wishes } from "@/components/invite/Wishes";
 import { invitation, mapsEmbedUrl, mapsUrl } from "@/lib/invitation";
 import heroAsset from "@/assets/couple-full.png";
 import groomPhoto from "@/assets/groom-photo.jpg";
+import { useRef, useState } from "react";
 
 const title = `${invitation.groom} & ${invitation.bride}`;
 const description = `${invitation.inviteText.opening} ${invitation.inviteText.introduction} السيد ${invitation.inviteText.father1} والسيد ${invitation.inviteText.father2} ${invitation.inviteText.closing} ${invitation.dateIntro} يوم ${invitation.dayName} الموافق ${invitation.dateText} في ${invitation.venue}.`;
@@ -120,6 +121,16 @@ function InvitationCover({ isOpening, onOpen }: { isOpening: boolean; onOpen: ()
 
 function Invitation() {
   const [isOpen, setIsOpen] = useState(false);
+  const musicRef = useRef<HTMLAudioElement | null>(null);
+
+const openInvitation = () => {
+  const audio = musicRef.current;
+  if (audio) {
+    audio.currentTime = 0;
+    void audio.play();
+  }
+  setIsOpen(true);
+};
 
   return (
     <div
@@ -127,6 +138,7 @@ function Invitation() {
       lang="ar"
       className={`relative min-h-screen pb-32 ${isOpen ? "" : "h-svh overflow-hidden"}`}
     >
+      <audio ref={musicRef} src="/wedding-song.mp3" preload="auto" loop />
       <div
         aria-hidden={!isOpen}
         inert={!isOpen}
@@ -316,7 +328,7 @@ function Invitation() {
         <BottomNav />
       </div>
 
-      <InvitationCover isOpening={isOpen} onOpen={() => setIsOpen(true)} />
+     <InvitationCover isOpening={isOpen} onOpen={openInvitation} />
     </div>
   );
 }
