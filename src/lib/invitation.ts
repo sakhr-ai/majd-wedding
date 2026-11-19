@@ -23,7 +23,7 @@ export const invitation = {
     introduction: "بكل الحب، يتشرف كل من",
     father1: "فهد الموسى",
     father2: "حسن عبدالله",
-    closing: "بدعوتكم لحضور حفل زفاف ولديهما .",
+    closing: "بدعوتكم لحضور حفل زفاف ولديهما",
   },
   
    groomMessage:
