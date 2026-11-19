@@ -173,7 +173,7 @@ function Invitation() {
                   <strong className="font-bold text-ivory">
                     {invitation.inviteText.father1}
                   </strong>
-                  {" والسيد "}
+                  {" و السيد "}
                   <strong className="font-bold text-ivory">
                     {invitation.inviteText.father2}
                   </strong>
